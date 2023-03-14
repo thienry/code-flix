@@ -1,0 +1,9 @@
+@startuml categotyUsecase
+
+:Admin: -> (Create Category)
+:Admin: -> (Update Category)
+:Admin: -> (Delete Category)
+:Admin: -> (Read Category)
+:Admin: -> (List Category)
+
+@enduml
