@@ -1,4 +1,12 @@
-FROM node:18.15.0-alpine
+FROM node:18.15.0-slim
+
+RUN apt update && apt install -y \
+    git \
+    ca-certificates \
+    default-jre \
+    zsh \
+    curl \
+    wget
 
 USER node
 
