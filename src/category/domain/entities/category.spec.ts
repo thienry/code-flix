@@ -1,7 +1,7 @@
 import lodash from "lodash"
 
 import { Category } from "./category"
-import { UniqueEntityId } from "../../../@seedwork/domain/unique-entity-id.value-object"
+import { UniqueEntityId } from "../../../@seedwork/domain/value-objects/unique-entity-id.value-object"
 
 describe('Category Unit Tests', () => {
   it('should return Category constructor', () => {

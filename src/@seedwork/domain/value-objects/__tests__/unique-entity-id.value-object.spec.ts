@@ -1,7 +1,7 @@
 import { validate as uuidValidate } from "uuid"
 
-import { UniqueEntityId } from "./unique-entity-id.value-object"
-import { InvalidUuidError } from "../../@seedwork/errors/invalid-uuid.error"
+import { UniqueEntityId } from "../unique-entity-id.value-object"
+import { InvalidUuidError } from "../../../../@seedwork/errors/invalid-uuid.error"
 
 describe('UniqueEntityId Unit Tests', () => {
   const validateSpy = jest.spyOn(UniqueEntityId.prototype as any, 'validate')
@@ -15,12 +15,12 @@ describe('UniqueEntityId Unit Tests', () => {
     const uuid = 'f3630b3a-8473-4917-bfe9-a3f5c4148e0a'
     const valueObject = new UniqueEntityId(uuid)
     expect(validateSpy).toHaveBeenCalled()
-    expect(valueObject.id).toBe(uuid)
+    expect(valueObject.value).toBe(uuid)
   })
   
   it('should return an uuid in constructor', () => {
     const valueObject = new UniqueEntityId()
     expect(validateSpy).toHaveBeenCalled()
-    expect(uuidValidate(valueObject.id)).toBeTruthy()
+    expect(uuidValidate(valueObject.value)).toBeTruthy()
   })
 })
