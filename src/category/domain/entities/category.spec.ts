@@ -52,7 +52,7 @@ describe('Category Unit Tests', () => {
     for (const item of data) {
       const category = new Category(item.props, item.id as any)
       expect(category.id).toBeDefined()
-      expect(category.id).toBeInstanceOf(UniqueEntityId)
+      expect(category.uniqueEntityId).toBeInstanceOf(UniqueEntityId)
     }
   })
 
