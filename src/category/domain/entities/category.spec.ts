@@ -56,9 +56,11 @@ describe('Category Unit Tests', () => {
     }
   })
 
-  it('should get of name property', () => {
+  it('should get and set of name property', () => {
     const category = new Category({ name: 'Movie' })
     expect(category.name).toBe('Movie')
+    category['name'] = 'Other name'
+    expect(category.name).toBe('Other name')
   })
 
   it('should get and set of description property', () => {
@@ -93,5 +95,23 @@ describe('Category Unit Tests', () => {
     let createdAt = new Date()
     category = new  Category({ name: 'Movie', created_at: createdAt })
     expect(category.createdAt).toBe(createdAt)
+  })
+
+  it('should update a category name and description', () => {
+    const category = new Category({ name: 'Movie', description: 'description' })
+    category.update({ name: 'TV Series', description: 'updated description' })
+    expect(category.props).toMatchObject({ name: 'TV Series', description: 'updated description' })
+  })
+  
+  it('should activate category', () => {
+    const category = new Category({ name: 'Movie', is_active: false })
+    category.activate()
+    expect(category.isActive).toBeTruthy()
+  })
+  
+  it('should deactivate category', () => {
+    const category = new Category({ name: 'Movie', is_active: true })
+    category.deactivate()
+    expect(category.isActive).toBeFalsy()
   })
 })

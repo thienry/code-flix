@@ -20,6 +20,10 @@ export class Category extends Entity<CategoryProps> {
     return this.props.name
   }
 
+  private set name(value: string) {
+    this.props.name = value
+  }
+
   get description(): string {
     return this.props.description
   }
@@ -38,5 +42,18 @@ export class Category extends Entity<CategoryProps> {
 
   get createdAt(): Date {
     return this.props.created_at
+  }
+
+  update(data: Pick<Category, 'name' | 'description'>): void {
+    this.name = data.name
+    this.description = data.description
+  }
+
+  activate(): void {
+    this.isActive = true
+  }
+  
+  deactivate(): void {
+    this.isActive = false
   }
 }
